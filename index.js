@@ -25,7 +25,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 console.log(uri)
 
 client.connect(err => {
-  
+
   console.log("err connecting", err)
   const eventCollection = client.db("twowheeler").collection("events");
   const reviewCollection = client.db("twowheeler").collection("review");
@@ -141,6 +141,6 @@ client.connect(err => {
 
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
